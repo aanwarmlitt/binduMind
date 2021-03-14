@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>js_sine</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        div {
+            margin-top: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <h1>Generate Sine Waves in JavaScript</h1>
+    <div>
+        <label for="l_freq">Set left frequency: </label>
+        <input id="l_freq" type="range" value="440" min="100" max="1000" step="1"
+            oninput="this.nextElementSibling.value = this.value">
+        <output>440</output>
+    </div>
+    <div>
+        <label for="r_freq">Set right frequency: </label>
+        <input id="r_freq" type="range" value="449" min="100" max="1000" step="1"
+            oninput="this.nextElementSibling.value = this.value">
+        <output>449</output>
+    </div>
+    <div>
+        <button id="play">play</button>
+        <button id="stop">stop</button>
+    </div>
+
+    <script src="" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
+            var is_on = false;
+            var context = new AudioContext();
+            var context_r = new AudioContext();
+            var o = context.createOscillator();
+            var g = context.createGain();
+            var a = context_r.createOscillator();
+            var b = context_r.createGain();
+            var frequency_l = Number($("#l_freq").val());
+            var frequency_r = Number($("#r_freq").val());
+            var pan_left = -1;
+            var pan_right = 1;
+            function generateSine(pan, freq, cont, os, gn) {
+                var panNode = cont.createStereoPanner();
+                panNode.pan.value = pan;
+                os = cont.createOscillator()
+                gn = cont.createGain()
+                os.connect(gn)
+                os.frequency.value = freq
+                gn.connect(panNode);
+                panNode.connect(cont.destination)
+                os.start(0)
+            }
+
+            $("#play").click(function () {
+                if (is_on == false) {
+                    frequency_l = Number($("#l_freq").val());
+                    frequency_r = Number($("#r_freq").val());
+                    context = new AudioContext();
+                    context_r = new AudioContext();
+                    o = context.createOscillator();
+                    g = context.createGain();
+                    a = context_r.createOscillator();
+                    b = context_r.createGain();
+                    generateSine(pan_left, frequency_l, context, o, g);
+                    generateSine(pan_right, frequency_r, context_r, a, b);
+                    is_on = true;
+                }
+            });
+            $("#stop").click(function () {
+                if (is_on == true) {
+                    context.close();
+                    context_r.close();
+                    is_on = false;
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Bindu Mind</title>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <style>
+        div {
+            margin-top: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Generate Sine Waves in JavaScript</h1>
+    <div>
+        <label for="l_freq">Set left frequency: </label>
+        <input id="l_freq" type="range" value="440" min="100" max="1000" step="1"
+            oninput="this.nextElementSibling.value = this.value">
+        <output>440</output>
+    </div>
+    <div>
+        <label for="r_freq">Set right frequency: </label>
+        <input id="r_freq" type="range" value="449" min="100" max="1000" step="1"
+            oninput="this.nextElementSibling.value = this.value">
+        <output>449</output>
+    </div>
+    <div>
+        <button id="play">play</button>
+        <button id="stop">stop</button>
+    </div>
+</body>
+
+</html>
