@@ -1,2 +1,49 @@
-div {
+html {
+  scroll-behavior: smooth; }
+
+.row-header {
+  margin: 0px auto;
+  padding: 0px 0px; }
+
+.row-content {
+  margin: 0px auto;
+  padding: 50px 0px;
+  border-bottom: 1px ridge;
+  min-height: 400px; }
+
+.footer {
+  background-color: #8C6E4B;
+  margin: 0px auto;
+  padding: 20px 0px; }
+  .footer ul a {
+    color: #38573D; }
+  .footer .address a {
+    color: #38573D; }
+
+.jumbotron {
+  margin: 0px auto;
+  padding: 200px 30px;
+  background-image: url("/img/jumbo.png");
+  background-repeat: no-repeat;
+  color: floralwhite; }
+
+.address {
+  font-size: 80%;
+  margin: 0px;
+  color: #0f0f0f; }
+
+body {
+  padding: 50px 0px 0px 0px;
+  z-index: 0; }
+
+.navbar-dark {
+  background-color: #000000; }
+
+.txt_center {
+  text-align: center; }
+
+#o_table {
+  margin-top: 5%; }
+
+#cpy_r {
   margin-top: 2%; }

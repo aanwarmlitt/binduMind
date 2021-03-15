@@ -14,25 +14,209 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
-    <h1>Generate Sine Waves in JavaScript</h1>
-    <div>
-        <label for="l_freq">Set left frequency: </label>
-        <input id="l_freq" type="range" value="440" min="100" max="1000" step="1"
-            oninput="this.nextElementSibling.value = this.value">
-        <output>440</output>
-    </div>
-    <div>
-        <label for="r_freq">Set right frequency: </label>
-        <input id="r_freq" type="range" value="449" min="100" max="1000" step="1"
-            oninput="this.nextElementSibling.value = this.value">
-        <output>449</output>
-    </div>
-    <div>
-        <button id="play">play</button>
-        <button id="stop">stop</button>
+<body id="pg_top">
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="index.html" class="navbar-brand ml-auto"><img src="img/logo.png" alt="company logo" height="30"
+                    width="41"></a>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav mr-auto ml-auto">
+                    <li class="nav-item active"><a href="#pg_top" class="nav-link"><span
+                                class="fa fa-home fa-lg"></span> Home</a></li>
+                    <li class="nav-item"><a href="#about_bb" class="nav-link"><span class="fa fa-info fa-lg"></span>
+                            About</a></li>
+                    <li class="nav-item"><a href="#gen_bb" class="nav-link"><span class="fa fa-list fa-lg"></span>BB
+                            Generator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="jumbotron">
+        <!-- Photo by Aaron Burden on Unsplash -->
+        <div class="txt_center">
+            <h1>Bindu Mind</h1>
+            <p>Entrain your brain and get things done!</p>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row row-content align-items-center" id="about_bb">
+            <div class="col-12 txt_center">
+                <h3>What are binaural beats?</h3>
+            </div>
+            <div class="col-12 col-md-6">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu facilisis odio, sed pulvinar
+                    arcu. Vestibulum quis ultricies lectus. Ut venenatis ut mauris in efficitur. Fusce ullamcorper ac
+                    purus ac varius. In tincidunt rutrum mollis. Cras interdum pellentesque turpis, sit amet accumsan
+                    odio rhoncus viverra. Nulla et aliquet justo. Phasellus gravida metus risus. Nunc volutpat dolor
+                    molestie commodo vehicula. Maecenas venenatis, dui eu efficitur dictum, augue nulla elementum metus,
+                    sed feugiat diam augue id leo. Aliquam cursus lobortis lobortis.
+                </p>
+                <p>
+                    Ut erat enim, suscipit et tempus at, ornare consequat eros. In eget dui at nisi venenatis malesuada
+                    at vitae nunc. Mauris quam velit, volutpat nec purus quis, gravida congue ipsum. Fusce vehicula
+                    risus molestie sem lacinia bibendum. Phasellus in augue vitae metus commodo suscipit. In convallis
+                    mattis purus in ullamcorper. Donec ante quam, vulputate eget mauris ac, hendrerit ornare mauris. Nam
+                    purus est, faucibus in neque id, faucibus tempor felis. Fusce facilisis, ipsum eu vulputate posuere,
+                    erat sem faucibus eros, eget facilisis ligula purus at odio. Vestibulum facilisis mauris id odio
+                    lobortis tempus. Praesent augue velit, mattis vel rutrum placerat, gravida a sapien.
+                </p>
+                <p>
+                    Proin interdum dui elit, ac vulputate nibh tincidunt id. Curabitur congue gravida mauris, semper
+                    ornare orci mollis a. Mauris volutpat metus consectetur, ultricies orci in, viverra lorem. Phasellus
+                    vel dapibus dolor, ut ultricies justo. Aenean mattis lectus eu risus viverra, non aliquet sapien
+                    tristique. Donec arcu lacus, mattis convallis bibendum eget, luctus eget dolor. Class aptent taciti
+                    sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras leo est, tempus nec
+                    dictum et, vestibulum eget ipsum. Etiam turpis velit, finibus et magna eu, sodales dapibus dui.
+                </p>
+            </div>
+            <div class="col-12 col-md-6 txt_center">
+                <div class="col-12">
+                    <h4>Brain Waves &amp; Frequencies</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Brain Waves</th>
+                                    <th>Frequency Range</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Gamma</th>
+                                    <td>30-50 Hz</td>
+                                </tr>
+                                <tr>
+                                    <th>Beta</th>
+                                    <td>13-30 Hz</td>
+                                </tr>
+                                <tr>
+                                    <th>Alpha</th>
+                                    <td>7-13 Hz</td>
+                                </tr>
+                                <tr>
+                                    <th>Theta</th>
+                                    <td>4-7 Hz</td>
+                                </tr>
+                                <tr>
+                                    <th>Delta</th>
+                                    <td>0.5-4 Hz</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12" id="o_table">
+                    <h4>Oster Curve</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Optimal Carrier Frequency</th>
+                                    <th>Beat Frequency (Hz)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>100</td>
+                                    <td>2.054</td>
+                                </tr>
+                                <tr>
+                                    <td>150</td>
+                                    <td>3.669</td>
+                                </tr>
+                                <tr>
+                                    <td>200</td>
+                                    <td>6.821</td>
+                                </tr>
+                                <tr>
+                                    <td>250</td>
+                                    <td>12.037</td>
+                                </tr>
+                                <tr>
+                                    <td>300</td>
+                                    <td>19.453</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-content align-items-center txt_center" id="gen_bb">
+            <div class="col-12">
+                <h3>Generate binaurl beats right from your browser!</h3>
+                <p>Set volume to lowest setting to begin / Use arrow keys to fine tune frequency</p>
+            </div>
+            <div class="col">
+                <div>
+                    <label for="l_freq">Set left frequency: </label>
+                    <input id="l_freq" type="range" value="440" min="100" max="1000" step="1"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output>440</output>
+                </div>
+                <div>
+                    <label for="r_freq">Set right frequency: </label>
+                    <input id="r_freq" type="range" value="449" min="100" max="1000" step="1"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output>449</output>
+                </div>
+                <div>
+                    <button class="btn btn-success" id="play">play</button>
+                    <button class="btn btn-danger" id="stop">stop</button>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 offset-sm-3 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#pg_top">Home</a></li>
+                        <li><a href="#about_bb">About</a></li>
+                        <li><a href="#gen_bb">BB Generator</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-2">
+                    <h5>Our Address</h5>
+                    <address class="address">
+                        123, Mountain Road<br>
+                        Colorado Springs, Colorado<br>
+                        United States<br>
+                        <i class="fa fa-phone fa-lg"></i>: +1 1234 5678<br>
+                        <i class="fa fa-fax fa-lg"></i>: +1 8765 4321<br>
+                        <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:bmind@mndninja.net">bmind@mndninja.net</a>
+                    </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i
+                                class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i
+                                class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i
+                                class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i
+                                class="fa fa-youtube fa-lg"></i></a>
+                        <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center" id="cpy_r">
+                <div class="col-auto">
+                    <p>© Copyright 2021 Bindu Mind App</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

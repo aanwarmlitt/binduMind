@@ -1,3 +1,76 @@
-div {
+$lt-gray: #ddd;
+$background-dark: #000000;
+$txt-grn: #38573D;
+$background-gold: #8C6E4B;
+
+@mixin zero-margin($pad-up-dn, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-dn $pad-left-right;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.row-header {
+    @include zero-margin(0px, 0px);
+}
+
+.row-content {
+    @include zero-margin(50px, 0px);
+    border-bottom: 1px ridge;
+    min-height: 400px;
+}
+
+.footer {
+    background-color: $background-gold;
+    @include zero-margin(20px, 0px);
+    
+    ul {
+
+        a {
+            color:$txt-grn;
+        }
+    }
+
+    .address {
+
+        a{
+            color:$txt-grn;
+        }
+    }
+}
+
+.jumbotron {
+    @include zero-margin(200px, 30px);
+    background-image: url("/img/jumbo.png");
+    background-repeat: no-repeat;
+    color:floralwhite;
+}
+
+.address {
+    font-size: 80%;
+    margin: 0px;
+    color: #0f0f0f;
+}
+
+body{
+    padding: 50px 0px 0px 0px;
+    z-index: 0;
+}
+
+.navbar-dark {
+    background-color: $background-dark;
+}
+
+.txt_center {
+    text-align: center;
+}
+
+#o_table{
+    margin-top: 5%;
+}
+
+#cpy_r {
     margin-top: 2%;
 }
